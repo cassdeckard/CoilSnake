@@ -118,7 +118,7 @@ class MusicModule(EbModule):
             # Write those files into the pack folder.
             pack_base_fname = 'MusicPacks/{:02X}/'.format(pack.pack_num)
             for fname, data in pack.convert_to_files():
-                fname_spl = fname.split('.')
+                fname_spl = fname.rsplit('.', 1)
                 is_text = isinstance(data,str)
                 with resourceOpener(pack_base_fname+fname_spl[0],fname_spl[1],is_text) as f:
                     if is_text:
